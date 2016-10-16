@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]><body class="ie ie7"><![endif]-->
+<!--[if IE 8 ]><body class="ie ie8"><![endif]-->
+<!--[if IE 9 ]><body class="ie ie9"><![endif]-->
+<html class='no-js' lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Standard Chartered</title>
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&subset=vietnamese" rel="stylesheet">
+    <link type="image/x-icon" href="{{ url_for('static', filename='images/fav.png')}}" rel="shortcut icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css')}}">
+    <style>
+        .field_error {
+            margin-left: 5px;
+            color: red;
+            font-size: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-holder wrap">
+        <header class='main-wrapper header'>
+            <div class="container apex">
+                <div class="row">
+                    <nav class="navbar header-navbar" role="navigation">
+                        <div class="navbar-header">
+                            <div class="logo navbar-brand">
+                                <a href="#" title="Standard Chartered"></a>
+                            </div>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <div class="navbar-right">
+                            </div>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </header>
+        <div class='main-wrapper '>
+            <section class="relative software_slider">
+                <div class="forma-slider">
+                    <div class="container">
+                        <div class="row">
+                            <div id="form_slider" data-anchor="form_slider">
+                                <ul class="form-bxslider list-unstyled">
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix visible-xs visible-md"></div>
+                            <div class="container relative fin_3" id='elem-portable'>
+                                <div class="reg-now">
+
+                                    <form class='reg-now-visible' id='formIndex' action="/" method="post" accept-charset="utf-8" role="form">
+                                        {{ form.hidden_tag() }}
+                                        <!--<p>Thẻ tín dụng ANZ nằm trong tầm tay bạn. Hãy điền thông tin của bạn và chúng tôi sẽ gọi ngay cho bạn trong một giờ để hỗ trợ bạn đăng ký:</p>-->
+                                        <!--<p class="title-form">Bạn có Thẻ tín dụng ANZ chưa?</p>-->
+                                        <!--<div class="radio-custom radio-danger fl mr-10">-->
+                                              <!--{%if form.luong.data == 'yes'%}-->
+                                            <!--<input type="radio" id="yes" name="luong" value="yes" required oninvalid="setCustomValidity('Xin vui lòng chọn một ô')" onclick="clearValidity()" checked/>-->
+                                            <!--{%else%}-->
+                                            <!--<input type="radio" id="yes" name="luong" value="yes" required oninvalid="setCustomValidity('Xin vui lòng chọn một ô')" onclick="clearValidity()"/>-->
+                                            <!--{%endif%}-->
+                                            <!--<label for="yes">Có</label>-->
+                                        <!--</div>-->
+                                        <!--<div class="radio-custom radio-danger fl">-->
+                                             <!--{%if form.luong.data == 'no'%}-->
+                                            <!--<input type="radio" id="no" name="luong" value="no" required onclick="clearValidity()" checked/>-->
+                                            <!--{%else%}-->
+                                            <!--<input type="radio" id="no" name="luong" value="no" required onclick="clearValidity()"/>-->
+                                            <!--{%endif%}-->
+                                            <!--<label for="no">Không</label>-->
+                                        <!--</div>-->
+                                        <!--<div class="clr"></div>-->
+                                        <!--<p class="title-form mb-10">Thông tin cá nhân</p>-->
+
+                                        <div class='control-group'>
+                                            <input type="text" name="name" {%if form.data.name%} value="{{form.data.name|safe}}" {%endif%} placeholder='Họ và tên' required oninvalid="setCustomValidity('Tên không chính xác!')" oninput="setCustomValidity('')"/>
+                                        </div>
+
+                                        <div class='control-group'>
+                                            <input type="text" id="phone" name="phone" value={%if form.data.phone%} "{{form.data.phone|safe}}" {%else%} "" {%endif%} placeholder='Số điện thoại' required pattern="^[0-9]{10,12}$" oninvalid="setCustomValidity('Số điện thoại không chính xác')" oninput="setCustomValidity('')"/>
+                                        </div>
+
+                                        <div class='control-group'>
+                                            {% if form.email.errors %}
+                                                <span class="field_error" id="email_error"></span>
+                                            {%endif%}
+
+                                            <input type="text" name="email" value={%if form.data.email%} "{{form.data.email|safe}}" {%else%} "" {%endif%} class='insert-attr' placeholder='Địa chỉ email' required oninvalid="setCustomValidity('Email không chính xác!')" oninput="setCustomValidity('')"/>
+                                        </div>
+
+                                        <div class="relative">
+                                            {% if form.caoch.errors %}
+                                                <span class="field_error" id="caoch_error"></span>
+                                            {%endif%}
+                                            {{slbox_caoch|safe}}
+                                        </div>
+
+                                        <div class="relative">
+                                            {% if form.region.errors %}
+                                                <span class="field_error" id="region_error"></span>
+                                            {%endif%}
+                                            {{slbox_region|safe}}
+                                        </div>
+
+                                        <div class="relative">
+                                            {% if form.gender.errors %}
+                                                <span class="field_error" id="gender_error"></span>
+                                            {%endif%}
+                                            {{slbox_gender|safe}}
+                                        </div>
+                                        <div class="checkbox-custom checkbox-danger">
+                                            {%if form.toidongy.data%}
+                                            <input type="checkbox" id="toidongy" name="toidongy" required oninvalid="setCustomValidity('Bạn phải đồng ý với điều khoản này')" onchange="setCustomValidity('')" checked/>
+                                            {%else%}
+                                            <input type="checkbox" id="toidongy" name="toidongy" required oninvalid="setCustomValidity('Bạn phải đồng ý với điều khoản này')" onchange="setCustomValidity('')"/>
+                                            {%endif%}
+                                            <label for="toidongy" class="label-form-dk" style="color: #fff;">
+                                                Quý khách đồng ý để ngân hàng Standard Charter liên lạc với Quý khách
+                                            </label>
+                                        </div>
+
+                                        <button type="submit" value="Register Now" class='btn submit sub-form' name="submit">Đăng ký ngay</button>
+                                        <h2>Platinum CashBack</h2>
+                                        <h5>Hoàn tiền đến 1% cho mọi chi tiêu và không giới hạn số tiền hoàn tối đa</h5>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="content">
+                <section id="tinhnang" class="container make-row ">
+                    <div class="section s1">
+                        <div class="row inner">
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="text-center">
+                                    <div class="img-holder mb-25">
+                                        <img alt="icon1" title="icon1" src="{{ url_for('static', filename='images/icon1.png')}}">
+                                    </div>
+                                    <div class="content">
+                                        <h4>Điểm thưởng du lịch</h4>
+                                        <p>Tích lũy tới 3 điểm thưởng du lịch cho mỗi 25.000 VNĐ chi tiêu</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="text-center">
+                                    <div class="img-holder mb-25">
+                                        <img alt="icon2" title="icon2" src="{{ url_for('static', filename='images/icon2.png')}}">
+                                    </div>
+                                    <div class="content">
+                                        <h4>áp dụng tại hơn 1000 địa điểm</h4>
+                                        <p>Tích lũy tới 3 điểm thưởng du lịch cho mỗi 25.000 VNĐ chi tiêu</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="text-center">
+                                    <div class="img-holder mb-25">
+                                        <img alt="icon3" title="icon3" src="{{ url_for('static', filename='images/icon3.png')}}">
+                                    </div>
+                                    <div class="content">
+                                        <h4>Dịch vụ phòng chờ cao cấp</h4>
+                                        <p>Miễn phí sử dụng dịch vụ phòng chờ cao cấp tại hơn 800 sân bay trên toàn thế giới</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="text-center">
+                                    <div class="img-holder mb-25">
+                                        <img alt="icon4" title="icon4" src="{{ url_for('static', filename='images/icon4.png')}}">
+                                    </div>
+                                    <div class="content">
+                                        <h4>Dịch vụ sân gôn</h4>
+                                        <p>Miễn phí phí ra sân tại 4 câu lạc bộ gôn:King’s Island Golf Club, Montgomerie Links Golf Club, Vietnam Golf & Country Club, Long Thanh Golf Club</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                </section>
+                <section id="tienich" class="container make-row">
+                    <div class="row">
+                        <div class="sec-title has-bg">
+                            <h3> Tiện ích</h3>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="tienich-info">
+                                <img src="{{ url_for('static', filename='images/tienich1.jpg')}}" alt="tienich1" title="tinệ ích 1">
+                                <div class="overlay">
+                                    <div class="box-holder">
+                                        <a class="box" href="javascript:void(0);" target="_blank">
+                                            <img src="{{ url_for('static', filename='images/click.png')}}" alt="click" title="Click">
+                                            <p>Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng. Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="t-title">
+                                <a href="javascript:void(0);"> Thanh toán cho các chi tiêu</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="tienich-info">
+                                <img src="{{ url_for('static', filename='images/tienich2.jpg')}}" alt="tienich2" title="Tiện ích 2">
+                                <div class="overlay">
+                                    <div class="box-holder">
+                                        <a class="box" href="javascript:void(0);" target="_blank">
+                                            <img src="{{ url_for('static', filename='images/click.png')}}" alt="click" title="Click">
+                                            <p>Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng. Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="t-title">
+                                <a href="javascript:void(0);"> Danh mục điểm thưởng</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="tienich-info">
+                                <img src="{{ url_for('static', filename='images/tienich3.jpg')}}" alt="tienich3" title="Tiện ích 3">
+                                <div class="overlay">
+                                    <div class="box-holder">
+                                        <a class="box" href="javascript:void(0);" target="_blank">
+                                            <img src="{{ url_for('static', filename='images/click.png')}}" alt="click" title="Click">
+                                            <p>Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng. Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="t-title">
+                                <a href="javascript:void(0);"> Đặc quyền sân gôn</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="tienich-info">
+                                <img src="{{ url_for('static', filename='images/tienich4.jpg')}}" alt="tienich4" title="Tiện ích 4">
+                                <div class="overlay">
+                                    <div class="box-holder">
+                                        <a class="box" href="javascript:void(0);" target="_blank">
+                                            <img src="{{ url_for('static', filename='images/click.png')}}" alt="click" title="Click">
+                                            <p>Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng. Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="t-title">
+                                <a href="javascript:void(0);"> Trải nghiệm và ưu đãi đặc quyền từ MasterCard</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="tienich-info">
+                                <img src="{{ url_for('static', filename='images/tienich5.jpg')}}" alt="tienich5" title="Tiện ích 5">
+                                <div class="overlay">
+                                    <div class="box-holder">
+                                        <a class="box" href="javascript:void(0);" target="_blank">
+                                            <img src="{{ url_for('static', filename='images/click.png')}}" alt="click" title="Click">
+                                            <p>Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng. Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="t-title">
+                                <a href="javascript:void(0);"> Chương trình The Godliffe</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="tienich-info">
+                                <img src="{{ url_for('static', filename='images/tienich6.jpg')}}" alt="tienich6" title="Tiện ích 6">
+                                <div class="overlay">
+                                    <div class="box-holder">
+                                        <a class="box" href="javascript:void(0);" target="_blank">
+                                            <img src="{{ url_for('static', filename='images/click.png')}}" alt="click" title="Click">
+                                            <p>Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng. Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="t-title">
+                                <a href="javascript:void(0);"> Đặc quyền sân gôn</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <section id="thongtin" class="container make-row">
+                    <div class="row">
+                        <div class="sec-title has-bg">
+                            <h3> Thông tin hữu ích</h3>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <a href="javascript:void(0);">
+                                <img src="{{ url_for('static', filename='images/icon5.png')}}" alt="icon5" title="icon 5">
+                                <div class="info2">Biểu Phí Thẻ Tín Dụng Standard Chartered</div>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <a href="javascript:void(0);">
+                                <img src="{{ url_for('static', filename='images/icon6.png')}}" alt="icon6" title="icon 6">
+                                <div class="info2">Hướng Dẫn Sử Dụng Thẻ Tín Dụng Priority WorldMiles</div>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <a href="javascript:void(0);">
+                                <img src="{{ url_for('static', filename='images/icon6.png')}}" alt="icon6" title="icon 6">
+                                <div class="info2">Hướng Sẫn Sử Dụng Ứng Dụng DragonPass</div>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <a href="javascript:void(0);">
+                                <img src="{{ url_for('static', filename='images/icon7.png')}}" alt="icon7" title="icon 7">
+                                <div class="info2">Danh Sách Phòng Chờ Cao Cấp Tại Các Sân Bay</div>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <a href="javascript:void(0);">
+                                <img src="{{ url_for('static', filename='images/icon8.png')}}" alt="icon8" title="icon 8">
+                                <div class="info2">Hướng Dẫn Quy Đổi Điểm Thưởng</div>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <a href="javascript:void(0);">
+                                <img src="{{ url_for('static', filename='images/icon9.png')}}" alt="icon9" title="icon 9">
+                                <div class="info2">Hướng Dẫn Sử Dụng Ứng Dụng The Good Life</div>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <a href="javascript:void(0);">
+                                <img src="{{ url_for('static', filename='')}}images/icon10.png" alt="icon10" title="icon 10">
+                                <div class="info2">Chương Trình Bảo Hiểm Du Lịch Toàn Diện</div>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <a href="javascript:void(0);">
+                                <img src="{{ url_for('static', filename='images/icon11.png')}}" alt="icon11" title="icon 11">
+                                <div class="info2">Chương Trình Hỗ Trợ Y Tế và Du Lịch</div>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <a href="javascript:void(0);">
+                                <img src="{{ url_for('static', filename='images/icon12.png')}}" alt="icon12" title="icon 12">
+                                <div class="info2">Hướng Dẫn Cách Thức Thanh Toán Thẻ Tín Dụng</div>
+
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <section id="dieukien" class="container make-row">
+                    <div class="row">
+                        <div class="bg-tn">
+                            <div class="sec-title">
+                                <h3> Điều kiện phát hành</h3>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="dkt">Độ tuổi</div>
+                                </div>
+                                <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="nddk">
+                                        Đối với khách hàng nữ: từ 22 – 55 tuổi
+                                        <br> Đối với khách hàng nam: từ 22 – 60 tuổi
+                                    </div>
+                                </div>
+                                <div class="clr"></div>
+                                <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="dkt">Thu nhập tối thiểu</div>
+                                </div>
+                                <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="nddk">
+                                        Chỉ áp dụng đối với khách hàng ưu tiên
+                                    </div>
+                                </div>
+                                <div class="clr"></div>
+                                <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="dkt">Chứng từ cần cung cấp</div>
+                                </div>
+                                <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="nddk">
+                                        <b>Đối với người Việt Nam:</b>
+                                        <br> + Bản sao CMND/Hộ chiếu
+                                        <br> + Bản sao Sổ Hộ Khẩu
+                                        <br> <b>Đối với người nước ngoài:</b>
+                                        <br> + Bản sao hộ chiếu
+                                        <br> + Bản sao Visa/Thẻ tạm trú/Thẻ thường trú hoặc Giấy phép lao động
+                                    </div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="dkt">Thẻ Tín Dụng Priority WorldMiles</div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="dkt"> Điều khoản & Điều kiện của thẻ tín dụng Standard Chartered</div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="dkt">Điều khoản & Điều kiện để quy đổi điểm thưởng</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <p>1 Ngân hàng có thể yêu cầu cung cấp thêm chứng từ trong trường hợp cần thiết <br><br></p>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <section id="cauhoi" class="container make-row">
+                    <div class="row">
+                        <div class="sec-title">
+                            <h3> Câu hỏi thường gặp</h3>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="panel-group" aria-multiselectable="true" role="tablist">
+                                <div class="panel">
+                                    <div class="panel-heading" role="tab" data-toggle="collapse" href="#Collapse1" aria-expanded="true">
+                                        <a class="panel-title">
+                                           Tôi muốn vay sửa nhà nhưng không thế chấp có được không?
+                                        </a>
+                                    </div>
+                                    <div class="panel-collapse collapse in" id="Collapse1" role="tabpanel">
+                                        <div class="panel-body">
+                                            Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel">
+                                    <div class="panel-heading" role="tab" data-toggle="collapse" href="#Collapse2" aria-expanded="false">
+                                        <a class="panel-title collapsed">
+                                          Tôi sẽ chịu lãi suất phạt trong những trường hợp nào? Mức lãi suất phạt là bao nhiêu ?
+                                        </a>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="Collapse2" role="tabpanel">
+                                        <div class="panel-body">
+                                            Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel">
+                                    <div class="panel-heading" role="tab" data-toggle="collapse" href="#Collapse3" aria-expanded="false">
+                                        <a class="panel-title collapsed">
+                                          Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                        </a>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="Collapse3" role="tabpanel">
+                                        <div class="panel-body">
+                                            Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel">
+                                    <div class="panel-heading" role="tab">
+                                        <a class="panel-title collapsed" data-toggle="collapse" href="#Collapse4" aria-expanded="false">
+                                          Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                        </a>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="Collapse4" role="tabpanel">
+                                        <div class="panel-body">
+                                            Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel">
+                                    <div class="panel-heading" role="tab" data-toggle="collapse" href="#Collapse5" aria-expanded="false">
+                                        <a class="panel-title collapsed">
+                                          Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                        </a>
+                                    </div>
+                                    <div class="panel-collapse collapse" id="Collapse5" role="tabpanel">
+                                        <div class="panel-body">
+                                            Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <footer class='main-wrapper footer'>
+            <div class="container bottom">
+                <div class="fl copyright">Copyright (c) 2016 accesstrade</div>
+                <nav>
+                    <ul style="margin:0px;">
+                        <li><a href="javascript:void(0);">FAQ</a></li>
+                        <li><a href="https://www.sc.com/vn/contact-us/">Liên hệ</a></li>
+                        <li><a href="https://www.sc.com/vn/">Trang chủ</a></li>
+                    </ul>
+
+                </nav>
+            </div>
+        </footer>
+        <!-- Top -->
+        <div id="back-top-wrapper" class="visible-lg">
+            <p id="back-top" class='bounceOut'>
+                <a href="#top">
+                    <span></span>
+                </a>
+            </p>
+        </div>
+
+    </div>
+    <div class="mask"></div>
+    <script src="{{ url_for('static', filename='js/jquery-1.10.1.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/modernizr.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.bxslider.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.customSelect.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.validate.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.colorbox-min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/custom.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/loader.js')}}"></script>
+    <script type="text/javascript">
+        <!--$(document).ready(function () {-->
+            <!--$('.subMenu').smint({-->
+                <!--'scrollSpeed': 1000-->
+            <!--});-->
+        <!--});-->
+    </script>
+
+
+    <script src="//cdn.accesstrade.vn/js/tracking.js" ></script>
+    <script type="text/javascript">
+        AT.track();
+        function clearValidity() {
+            document.getElementById('yes').setCustomValidity('');
+        }
+
+        function onInvalidCustom(idstr) {
+            var me = document.getElementById(idstr);
+            me.setCustomValidity('Số điện thoại không chính xác');
+            //me.setCustomValidity('');
+        }
+
+        function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length,c.length);
+                    }
+                }
+                return "";
+        }
+            //alert(getCookie("_aff_network") + "|" + getCookie("_aff_sid"))
+            $("#aff_source").val(getCookie("_aff_network"));
+            $("#aff_sid").val(getCookie("_aff_sid"));
+
+    </script>
+
+   <script>
+        $(document).ready(function(){
+            $(".field_error").html('');
+                {% for field in form if field.widget.input_type != 'hidden' %}
+                    {% if field.errors %}
+                        {%for error in field.errors%}
+                            $('#{{field.name}}_error').html('{{error}}');
+                        {%endfor%}
+                    {%endif%}
+                {%endfor%}
+            });
+    </script>
+
+</body>
+
+</html>
