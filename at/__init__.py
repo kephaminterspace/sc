@@ -16,7 +16,7 @@ from .utils import *
 logger = logging.getLogger(__name__)
 app = Flask(__name__, template_folder="templates", static_folder="statics")
 #app.config.from_object("at.config")
-app.secret_key = 'acfajdslkf'
+app.secret_key = 'scfajdslkf'
 
 @app.route('/robots.txt')
 def static_from_root():
@@ -48,7 +48,7 @@ def index():
                     {"property":"phone", "value":form.phone.data},
                     {"property":"hs_lead_status", "value":"NEW"},
                     {"property":"region", "value": int(form.region.data)},
-                    {"property":"birthday", "value": int(form.birthday.data)},
+                    {"property":"birthday", "value": form.birthday.data},
                     {"property":"salary_payment_method", "value":salary_method},
                     {"property":"monthly_income_level", "value":int(form.caoch.data)},
                     {"property":"aff_source", "value":form.aff_source.data},
