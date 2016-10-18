@@ -50,15 +50,13 @@ def select_box_by_list(list=None, selected="", name="", id="", cls="", style="",
 REGION=[
     (1,u"Hà Nội"),
     (2,u"Thành phố Hồ Chí Minh"),
-    (3,u"Bình Dương"),
-    (4,u"Khác")
+    (3,u"Bình Dương")
 ]
 
 CAOCH=[
-    (1,u'Lương dưới 8 triệu/tháng'),
-    (2,u'Lương từ 8 triệu - 16 triệu/tháng'),
-    (3,u'Lương từ 16 triệu - 20 triệu/tháng'),
-    (4,u'Lương trên 20 triệu/tháng')
+    (1,u'Lương bổng'),
+    (2,u'Tự làm chủ doanh nghiệp'),
+    (3,u'Tự làm việc chuyên nghiêp')
 ]
 
 GENDER=[

@@ -12,6 +12,13 @@
 @media (max-width: 1200px) {
     #gallery > div {}
     /*coding here*/
+    .reg-now {
+        padding: 0px 0px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .subMenu { display: none}
 }
 
 @media (min-width: 992px) {
@@ -24,6 +31,9 @@
     .bank-card img {
         margin-bottom: 15px;
         width: 146px !important;
+    }
+    .logo a {
+        width: 180px;
     }
 }
 
@@ -90,13 +100,19 @@
     .forma-slider #formIndex {
         margin-left: auto;
         margin-right: auto;
-        width: 750px;
     }
     .forma-slider #form_slider {
         width: 750px;
         margin-left: auto;
         margin-right: auto;
         display: none;
+    }
+    .reg-now h5 {
+        font-size: 15px;
+        line-height: 23px;
+    }
+    .reg-now h2 {
+        font-size: 23px;
     }
     .img-slider {
         bottom: 0;
@@ -142,12 +158,41 @@
     .logo a {
         width: 130px;
     }
-    .header { padding: 20px 0}
+    .header {
+        padding: 20px 0
+    }
 }
 
 @media (max-width: 767px) {
     .tab-content {
         padding: 20px 0px
+    }
+    .copyright,
+    .container.bottom nav ul {
+        float: none;
+        text-align: center;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="email"],
+    textarea {
+        font-size: 14px;
+        height: 40px;
+        border-radius: 2px;
+    }
+    .software_slider {
+        background: url(../images/slider_bg.jpg) no-repeat fixed top left #f4f4f4;
+    }
+    span.customSelect {
+        font-size: 14px;
+        height: 40px;
+        line-height: 38px !important;
+        border-radius: 2px;
+    }
+    .submit {
+        height: 50px;
     }
     .copyright {
         margin-top: 0px;
@@ -192,7 +237,6 @@
         padding: 10px;
         color: #000;
     }
-    
     .slide-menu-left a:hover {
         color: #EC1C24;
     }
@@ -377,16 +421,12 @@
     .col-sm-12,
     .col-md-12,
     .col-lg-12 {
-        padding-right: 40px;
-        padding-left: 40px;
+        padding-right: 15px;
+        padding-left: 15px;
     }
     .big-slider .form-bxslider > li {
         padding-right: 60px;
         padding-left: 60px;
-    }
-    .row {
-        margin-left: -40px;
-        margin-right: -40px;
     }
     .table-offers {
         padding-right: 0;
@@ -438,11 +478,6 @@
     .img2 {
         width: 49%
     }
-    /*
-    #tienich .col-xs-6 {
-        width: 100%;
-    }
-*/
 }
 
 @media (max-width: 400px) {
@@ -456,11 +491,6 @@
     .seminars {
         margin-left: 0;
         float: none;
-    }
-    .copyright,
-    .container.bottom nav ul {
-        float: none;
-        text-align: center;
     }
     /*coding here*/
 }

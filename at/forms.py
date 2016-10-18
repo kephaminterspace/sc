@@ -18,10 +18,11 @@ class BankForm(Form):
     name = TextField('Name', validators = [DataRequired(message=u'Tên không chính xác')])
     phone = TextField('Phone', validators = [DataRequired(message=u'Số điện thoại không chính xác'), Length(min=10, max=12), _check_phone_number])
     email = EmailField('Email', validators = [DataRequired(message=u'Email không chính xác'), Email(message=u'Email không chính xác')])
+    birthday = TextField('Birthday', validators=[DataRequired(message=u'Ngày sinh không chính xác')])
+    salary = TextField('Salary', validators=[DataRequired(message=u'Tổng thu nhập hàng tháng cố định không chính xác')])
 
-    region = SelectField('Region', choices=REGION, validators=[DataRequired(message=u'Xin vui lòng chọn Thành phố')], coerce=int)
-    gender = SelectField('gender', choices=GENDER, validators=[DataRequired(message=u'Xin vui lòng chọn Giới tính')], coerce=int)
-    caoch = SelectField('Salary', choices=CAOCH, validators=[DataRequired(message=u'Xin vui lòng chọn Mức thu nhập của bạn')], coerce=int)
+    region = SelectField('Region', choices=REGION, validators=[DataRequired(message=u'Xin vui lòng chọn Thành phố bạn sinh sống')], coerce=int)
+    caoch = SelectField('Source Salary', choices=CAOCH, validators=[DataRequired(message=u'Xin vui lòng chọn Nguồn thu nhập')], coerce=int)
 
     toidongy = BooleanField("Agree", validators = [DataRequired(message=u'Bạn phải đồng ý với điều khoản của chúng tôi')])
     aff_source = HiddenField("aff_source")

@@ -28,11 +28,9 @@ def index():
     if form.luong.data not in ["yes", "no"]:
 	form.luong.data = ''
     slbox_region = select_box_by_list(REGION, form.region.data, 'region', 'region', 'form-control styled', '',
-                                      'Thành phố')
-    slbox_caoch = select_box_by_list(CAOCH, form.caoch.data, 'caoch', 'caoch', 'form-control styled', '',
-                                      'Mức thu nhập của bạn')
-    slbox_gender = select_box_by_list_disabled(GENDER, form.gender.data, 'gender', 'gender', 'form-control styled', '',
-                                        'Giới tính')
+                                      'Thành phố bạn sinh sống')
+    slbox_caoch = select_box_by_list_disabled(CAOCH, form.caoch.data, 'caoch', 'caoch', 'form-control styled', '',
+                                      'Nguồn thu nhập')
 
     if request.method == 'POST':
         if form.validate_on_submit():
@@ -50,7 +48,7 @@ def index():
                     {"property":"phone", "value":form.phone.data},
                     {"property":"hs_lead_status", "value":"NEW"},
                     {"property":"region", "value": int(form.region.data)},
-                    {"property":"gender", "value": int(form.gender.data)},
+                    {"property":"birthday", "value": int(form.birthday.data)},
                     {"property":"salary_payment_method", "value":salary_method},
                     {"property":"monthly_income_level", "value":int(form.caoch.data)},
                     {"property":"aff_source", "value":form.aff_source.data},
@@ -71,16 +69,16 @@ def index():
                     else:
                         form.email.errors.append(res_json["message"])
 
-                    return render_template('index.html', form=form, slbox_region=slbox_region, slbox_caoch=slbox_caoch, slbox_gender=slbox_gender)
+                    return render_template('index.html', form=form, slbox_region=slbox_region, slbox_caoch=slbox_caoch)
                 else:
                     return render_template('thankyou.html')
 
             form.email.errors.append("Invalid data!")
-            return render_template('index.html', form=form, slbox_region=slbox_region, slbox_caoch=slbox_caoch, slbox_gender=slbox_gender)
+            return render_template('index.html', form=form, slbox_region=slbox_region, slbox_caoch=slbox_caoch)
 
         else:
-            return render_template('index.html', form=form, slbox_region=slbox_region, slbox_caoch=slbox_caoch, slbox_gender=slbox_gender)
+            return render_template('index.html', form=form, slbox_region=slbox_region, slbox_caoch=slbox_caoch)
 
-    return render_template('index.html', form=form, slbox_region=slbox_region, slbox_caoch=slbox_caoch, slbox_gender=slbox_gender)
+    return render_template('index.html', form=form, slbox_region=slbox_region, slbox_caoch=slbox_caoch)
 
 

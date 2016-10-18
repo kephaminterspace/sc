@@ -545,7 +545,8 @@ img {
 .software_slider {
     width: 100%;
     background: url(../images/slider_bg.jpg) no-repeat fixed top center #f4f4f4;
-    padding-top: 100px;
+    padding-top: 85px;
+    height: 850px;
 }
 
 .forma-slider .bx-wrapper .bx-controls-direction a {
@@ -818,11 +819,14 @@ img {
     margin-left: -320px;
 }
 
+
+/*
 .fin_1,
 .fin_2,
 .fin_3 {
     opacity: 0;
 }
+*/
 
 #form_slider .bx-default-pager a {
     border: 1px solid;
@@ -933,7 +937,7 @@ img {
 
 #back-top {
     background: #fff;
-    border: 2px solid #0072aa;
+    border: 2px solid #21aa47;
     cursor: pointer;
     height: 48px;
     margin: 0;
@@ -946,8 +950,8 @@ img {
 }
 
 #back-top:hover {
-    background: #0072aa;
-    border-color: #0072aa;
+    background: #21aa47;
+    border-color: #21aa47;
 }
 
 #back-top span {
@@ -1099,18 +1103,21 @@ img {
 
 .reg-now {
     position: absolute;
-    right: 0;
-    top: 10px;
-    width: 450px;
+    bottom: 0px;
+    top: 0px;
     padding: 30px 20px;
-    background: rgba(0, 0, 0, 0.3);
-    border-top: 5px solid #21aa47;
+    left: 30px;
+    width: 450px;
 }
 
 #elem-portable {
     position: absolute;
     top: 0;
+    bottom: 0px;
     z-index: 151;
+    right: 0px;
+    left: 50%;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .relative {
@@ -1131,12 +1138,12 @@ input[type="number"],
 input[type="email"],
 textarea {
     -moz-box-sizing: border-box;
-    border-radius: 1px;
+    border-radius: 2px;
     box-shadow: none;
-    color: #666;
-    font: 12px/16px Arial;
-    height: 40px;
-    margin-bottom: 13px;
+    color: #0072aa;
+    font: 16px/16px Arial;
+    height: 50px;
+    margin-bottom: 15px;
     padding: 6px 12px;
     resize: none;
     border: 1px solid rgba(182, 182, 182, 0.4);
@@ -1212,7 +1219,7 @@ form .success textarea {
     box-shadow: none;
     color: #fff;
     font: 16px/20px 'OpenSans_Bold', Arial;
-    height: 50px;
+    height: 55px;
     text-transform: uppercase;
     font-size: 21px;
     font-weight: 600;
@@ -1307,12 +1314,12 @@ button::-moz-focus-inner {
 span.customSelect {
     text-align: left;
     background: #fff;
-    border-radius: 1px;
-    color: #666;
+    border-radius: 2px;
+    color: #0072aa;
     font-family: Arial;
-    font-size: 12px;
-    height: 40px;
-    line-height: 39px !important;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px !important;
     padding: 0 0 0 12px;
     width: 100%;
     margin-bottom: 13px;
@@ -2274,7 +2281,6 @@ span.customSelect {
 /*====================>-Footer-<==================*/
 
 .footer {
-    background: #f7f7f7;
     border-top: 1px solid #e8e8e8;
 }
 
@@ -3180,8 +3186,7 @@ section.video-bxslider:hover:after {
 .radio-custom {
     position: relative;
     display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .checkbox-custom label {
@@ -3229,11 +3234,11 @@ section.video-bxslider:hover:after {
 }
 
 .radio-danger input[type=radio]:checked+label::before {
-    border-color: #00baf0;
+    border-color: #0085d3;
 }
 
 .radio-custom input[type=radio]:checked+label::before {
-    border-color: #00baf0;
+    border-color: #0085d3;
     border-width: 10px;
 }
 
@@ -3314,6 +3319,8 @@ textarea {
     vertical-align: middle;
     position: relative;
     padding-left: 10px;
+    color: #fff;
+    margin-right: 30px;
 }
 
 .radio-custom label::before {
@@ -3464,7 +3471,7 @@ textarea {
 }
 
 .footer nav ul li {
-    float: right;
+    float: left;
     list-style-type: none;
     margin: 10px;
 }
@@ -3578,7 +3585,6 @@ ul.u2 li.li6 {
 .copyright {
     color: #333;
     padding: 10px 0px;
-    text-transform: uppercase;
 }
 
 .excerpt:hover .cash2,
@@ -3666,6 +3672,7 @@ ul.u2 li.li6 {
 
 .container.bottom nav ul {
     padding: 0px;
+    float: right
 }
 
 @media (max-width: 1200px) {
@@ -3701,11 +3708,11 @@ ul.u2 li.li6 {
         font-size: 14px;
     }
     #elem-portable {
-        padding-top: 30px !important;
-        padding-bottom: 30px !important;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
     }
     .software_slider {
-        padding-top: 70px !important;
+        padding-top: 90px !important;
     }
     .text-1 {
         font-size: 32px;
@@ -3779,8 +3786,8 @@ ul.u2 li.li6 {
         padding-left: 15px !important;
     }
     .container {
-        padding-right: 20px !important;
-        padding-left: 20px !important;
+        padding-right: 15px !important;
+        padding-left: 15px !important;
     }
     .footer nav ul li {
         list-style-type: none;
@@ -3988,54 +3995,54 @@ ul.u2 li.li6 {
     border: 1px solid #eee;
 }
 
-#tinhnang .col-md-3 {
+.tinhnang .col-md-3 {
     /*    margin-bottom: 30px;*/
 }
 
-#tinhnang h4 {
+.tinhnang h4 {
     text-transform: uppercase;
     color: #2aac48;
     font-size: 16px;
     font-weight: 600;
 }
 
-#thongtin .col-xs-12 {
+.thongtin .col-xs-12 {
     margin-bottom: 35px;
     min-height: 50px;
 }
 
-#thongtin a img {
+.thongtin a img {
     float: left;
     margin-right: 15px;
 }
 
-#thongtin .info2 {
+.thongtin .info2 {
     margin-top: 5px;
     color: #666;
 }
 
-#thongtin a:hover .info2 {
+.thongtin a:hover .info2 {
     color: #003366;
 }
 
-#cauhoi .panel-group .panel+.panel {
+.cauhoi .panel-group .panel+.panel {
     margin-top: 10px;
 }
 
-#cauhoi .panel-title {
+.cauhoi .panel-title {
     color: #23a12c;
     font-weight: 600;
 }
 
-#cauhoi .panel-group .panel-heading + .panel-collapse .panel-body {
+.cauhoi .panel-group .panel-heading + .panel-collapse .panel-body {
     background: rgb(245, 245, 245);
 }
 
-#cauhoi .panel-group .panel {
+.cauhoi .panel-group .panel {
     border: 1px solid #d1c9c9;
 }
 
-#cauhoi .panel-group .panel-heading {
+.cauhoi .panel-group .panel-heading {
     background: url(../images/cauhoi.png) no-repeat;
     background-size: 47px 47px;
     cursor: pointer;
@@ -4048,6 +4055,7 @@ ul.u2 li.li6 {
 
 .tienich-info img {
     width: 100%;
+    border-radius: 5px;
 }
 
 .tienich-info:hover .overlay {
@@ -4125,39 +4133,42 @@ ul.u2 li.li6 {
     opacity: 1;
 }
 
-#tienich .col-xs-12 {
+.tienich .col-xs-12 {
     margin-bottom: 30px;
 }
 
-#tienich .t-title {
+.tienich .t-title {
     text-transform: uppercase;
     margin: 10px 0px;
     /*    text-align: center;*/
 }
 
-#tienich .t-title a {
+.tienich .t-title a {
     color: #333;
 }
 
 .reg-now p {
     color: #fff;
+    padding: 10px 0px;
+    margin-bottom: 0px;
 }
 
 .reg-now h2 {
     color: #fff;
     text-transform: uppercase;
-    font-size: 24px;
+    font-size: 33px;
     font-weight: 800;
     letter-spacing: -1px;
-    text-align: center;
     margin-top: 30px;
 }
 
 .reg-now h5 {
     color: #fff;
-    font-size: 16px;
+    font-size: 19px;
     font-weight: 300;
-    text-align: center;
+    font-family: "Open Sans";
+    margin-top: 10px;
+    line-height: 25px;
 }
 
 .dkt {
@@ -4175,7 +4186,6 @@ ul.u2 li.li6 {
 .nddk {
     line-height: 23px;
     margin-left: 40px;
-    color: #666;
     font-weight: 300;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -4195,16 +4205,17 @@ ul.u2 li.li6 {
 }
 
 .bg-tn {
-    background: url(../images/tn-bg.jpg) no-repeat bottom left;
+    background: #5fb84c;
     padding: 5px 0px;
-    margin: 15px;
+    margin: 15px 0px;
+    color: #fff;
 }
 
-#cauhoi {
+.cauhoi {
     margin-bottom: 20px;
 }
 
-#tinhnang {
+.tinhnang {
     margin-top: 20px;
 }
 
@@ -4215,4 +4226,64 @@ ul.u2 li.li6 {
 
 .img-holder {
     margin-top: 10px;
+}
+
+::-webkit-input-placeholder {
+    color: #0072aa;
+}
+
+:-moz-placeholder {
+    color: #0072aa;
+}
+
+::-moz-placeholder {
+    color: #0072aa;
+}
+
+:-ms-input-placeholder {
+    color: #0072aa;
+}
+
+.subMenu {
+    z-index: 1000;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+}
+
+.subMenu ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.subMenu ul li {
+    list-style-type: none;
+    float: left;
+    padding: 10px 0px 10px 0px;
+}
+
+.subMenu .container.make-row {
+    margin-top: 0px;
+}
+
+.subNavBtn {
+    display: block;
+    float: left;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 0px 15px 0px 15px;
+    color: #333;
+}
+
+.subMenu a:hover,
+.subMenu a:focus {
+    color: #0071aa
+}
+
+.bg-tn .sec-title {
+    margin: 0px;
+}
+
+.f-menu {
+    display: inline-block;
 }
