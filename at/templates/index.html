@@ -96,7 +96,7 @@
                                             {{slbox_region|safe}}
                                         </div>
                                         <div class="relative">
-                                            <input type="text" placeholder='Ngày sinh' name="birthday" value={%if form.data.birthday%} "{{form.data.birthday|safe}}" {%else%} "" {%endif%} class='insert-attr' placeholder='Ngày sinh' required oninvalid="setCustomValidity('Ngày sinh không chính xác!')" oninput="setCustomValidity('')" />
+                                            <input type="text" class="datepicker" name="birthday" {%if form.data.birthday%} value="{{form.data.birthday|safe}}" {%endif%} placeholder='Ngày sinh' required oninvalid="setCustomValidity('Ngày sinh' không chính xác!')" oninput="setCustomValidity('')"/>
                                         </div>
 
                                         <div class="relative">
@@ -153,7 +153,7 @@
                             <li><a href="#thongtin" class="subNavBtn">Thông tin hữu ích</a>|</li>
                             <li><a href="#dieukien" class="subNavBtn">Điều kiện phát hành</a>|</li>
                             <li><a href="#cauhoi" class="subNavBtn">Câu hỏi thường gặp</a>|</li>
-                            <li><a href="#dieukien" class="subNavBtn">Điều khoản & điều kiện</a></li>
+                            <li><a href="#dieukien1" class="subNavBtn">Điều khoản & điều kiện</a></li>
                             <div class="clr"></div>
                         </ul>
                     </div>
@@ -161,7 +161,7 @@
             </div>
 
             <section class="container make-row ">
-                <div class="tinhnang">
+                <div id="tinhnang" class="tinhnang">
                     <div class="row">
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="text-center">
@@ -213,7 +213,7 @@
                 </div>
             </section>
             <section class="container make-row">
-                <div class="tienich">
+                <div id="tienich" class="tienich">
                     <div class="row">
                         <div class="sec-title has-bg">
                             <h3> Tiện ích</h3>
@@ -319,7 +319,7 @@
                 </div>
             </section>
             <section class="container make-row">
-                <div class="thongtin s3">
+                <div id="thongtin" class="thongtin s3">
                     <div class="row">
                         <div class="sec-title has-bg">
                             <h3> Thông tin hữu ích</h3>
@@ -392,7 +392,7 @@
             </section>
             <section style="background:#5fb84c">
                 <div class="container make-row">
-                    <div class="dieukien s4">
+                    <div id="dieukien1" class="dieukien1 s4">
                         <div class="row">
                             <div class="bg-tn">
 
@@ -459,7 +459,7 @@
                 </div>
             </section>
             <section class="container make-row">
-                <div class="cauhoi s5">
+                <div id="cauhoi" class="cauhoi s5">
                     <div class="row">
                         <div class="sec-title">
                             <h3> Câu hỏi thường gặp</h3>
@@ -571,6 +571,18 @@
     <script src="{{ url_for('static', filename='js/loader.js')}}"></script>
     <script src="//cdn.accesstrade.vn/js/tracking.js" ></script>
     <script type="text/javascript">
+        $(document).ready(function () {
+
+        $('.datepicker').datepicker({
+            format: 'dd-mm-yyyy'
+        });
+
+            <!--$('.subMenu').smint({-->
+                <!--'scrollSpeed': 1000-->
+            <!--});-->
+        });
+    </script>
+    <script type="text/javascript">
         AT.track();
         function clearValidity() {
             document.getElementById('yes').setCustomValidity('');
@@ -601,6 +613,10 @@
             $("#aff_sid").val(getCookie("_aff_sid"));
 
     </script>
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
 </body>
 
 </html>
