@@ -29,8 +29,8 @@ def index():
 	form.luong.data = ''
     slbox_region = select_box_by_list(REGION, form.region.data, 'region', 'region', 'form-control styled', '',
                                       'Thành phố bạn sinh sống')
-    slbox_caoch = select_box_by_list_disabled(CAOCH, form.caoch.data, 'caoch', 'caoch', 'form-control styled', '',
-                                      'Nguồn thu nhập')
+    slbox_caoch = select_box_by_list(CAOCH, form.caoch.data, 'caoch', 'caoch', 'form-control styled', '',
+                                      'Mức lương chuyển khoản hàng tháng ?')
 
     if request.method == 'POST':
         if form.validate_on_submit():

@@ -544,9 +544,9 @@ img {
 
 .software_slider {
     width: 100%;
-    background: url(../images/slider_bg.jpg) no-repeat fixed top center #f4f4f4;
+    background: url(../images/slider3_bg.jpg) no-repeat fixed top center #f4f4f4;
     padding-top: 85px;
-    height: 850px;
+    height: 800px;
 }
 
 .forma-slider .bx-wrapper .bx-controls-direction a {
@@ -1105,7 +1105,7 @@ img {
     position: absolute;
     bottom: 0px;
     top: 0px;
-    padding: 5px 20px;
+    padding: 30px 20px;
     left: 30px;
     width: 450px;
 }
@@ -1126,7 +1126,7 @@ img {
 }
 
 .reg-now-visible {
-    margin-top: 10px;
+/*    margin-top: 10px;*/
     position: relative;
     z-index: 100;
 }
@@ -4000,7 +4000,7 @@ ul.u2 li.li6 {
 }
 
 .tinhnang h4 {
-    text-transform: uppercase;
+    /*    text-transform: uppercase;*/
     color: #2aac48;
     font-size: 16px;
     font-weight: 600;
@@ -4138,7 +4138,7 @@ ul.u2 li.li6 {
 }
 
 .tienich .t-title {
-    text-transform: uppercase;
+    /*    text-transform: uppercase;*/
     margin: 10px 0px;
     /*    text-align: center;*/
 }
@@ -4148,9 +4148,11 @@ ul.u2 li.li6 {
 }
 
 .reg-now p {
-    color: #fff;
+       color: #fff;
     padding: 10px 0px;
     margin-bottom: 0px;
+    font-size: 16px;
+    line-height: 23px;
 }
 
 .reg-now h2 {
@@ -4163,24 +4165,26 @@ ul.u2 li.li6 {
 }
 
 .reg-now h5 {
-    color: #fff;
-    font-size: 19px;
-    font-weight: 300;
+        color: #fff;
+    font-size: 23px;
+    font-weight: 500;
     font-family: "Open Sans";
-    margin-top: 10px;
+    margin-top: 30px;
     line-height: 25px;
+    text-transform: uppercase;
+/*    text-align: center;*/
 }
 
 .dkt {
-    font-size: 13px;
+    font-size: 14px;
     background: url(../images/icon-check.png) no-repeat;
     padding-left: 40px;
     min-height: 30px;
     line-height: 23px;
     background-size: 25px;
     font-weight: 500;
-    margin-top: 15px;
-    text-transform: uppercase;
+    margin-top: 10px;
+/*    text-transform: uppercase;*/
 }
 
 .nddk {
@@ -4205,7 +4209,7 @@ ul.u2 li.li6 {
 }
 
 .bg-tn {
-    background: #5fb84c;
+    /*    background: #5fb84c;*/
     padding: 5px 0px;
     margin: 15px 0px;
     color: #fff;
@@ -4286,4 +4290,9 @@ ul.u2 li.li6 {
 
 .f-menu {
     display: inline-block;
+}
+
+.hl {
+    font-weight: 600;
+    color: yellow
 }

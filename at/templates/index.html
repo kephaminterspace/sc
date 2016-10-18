@@ -16,12 +16,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css')}}">
-    <style>
-        .field_error {
-            margin-left: 5px;
-            color: #dd4b39;
-        }
-    </style>
+<style>
+    .software_slider {
+        height: 850px;
+    }
+</style>
+
 </head>
 
 <body>
@@ -59,9 +59,9 @@
                     <div class="container">
                         <div class="row">
                             <div class="container relative fin_3" id='elem-portable'>
-                                <div class="reg-now">
+                                <div class="reg-now" style="padding-top:5px;">
 
-                                    {% for field in form if field.widget.input_type != 'hidden' %}
+                                      {% for field in form if field.widget.input_type != 'hidden' %}
                                         {% if field.errors %}
                                         <div class='alert alert-danger'><a class='close' data-dismiss='alert'>×</a>
                                             {%for error in field.errors%}
@@ -73,8 +73,8 @@
 
                                     <form class='reg-now-visible' id='formIndex' action="/" method="post" accept-charset="utf-8" role="form">
                                         {{ form.hidden_tag() }}
-                                        <p class="title-form">Bạn có Thẻ tín dụng SCB chưa?</p>
-                                        <div class="radio-custom radio-danger fl mr-10">
+                                        <p>Bạn có sử dụng lương chuyển khoản không ?</p>
+                                                 <div class="radio-custom radio-danger fl mr-10">
                                               {%if form.luong.data == 'yes'%}
                                             <input type="radio" id="yes" name="luong" value="yes" required oninvalid="setCustomValidity('Xin vui lòng chọn một ô')" onclick="clearValidity()" checked/>
                                             {%else%}
@@ -95,47 +95,31 @@
                                         <div class="relative">
                                             {{slbox_region|safe}}
                                         </div>
-                                        <div class="relative">
-                                            <input type="text" class="datepicker" name="birthday" {%if form.data.birthday%} value="{{form.data.birthday|safe}}" {%endif%} placeholder='Ngày sinh' required oninvalid="setCustomValidity('Ngày sinh' không chính xác!')" oninput="setCustomValidity('')"/>
-                                        </div>
-
-                                        <div class="relative">
-                                            {{slbox_caoch|safe}}
-                                        </div>
-
                                         <div class='control-group'>
-                                           <input type="text" name="salary" {%if form.data.salary%} value="{{form.data.salary|safe}}" {%endif%} placeholder='Tổng thu nhập hàng tháng cố định' required oninvalid="setCustomValidity('Tổng thu nhập hàng tháng cố định không chính xác!')" oninput="setCustomValidity('')"/>
+                                            <input type="text" class="datepicker" name="birthday" {%if form.data.birthday%} value="{{form.data.birthday|safe}}" {%endif%} placeholder='Ngày sinh' required oninvalid="setCustomValidity('Ngày sinh không chính xác!')" oninput="setCustomValidity('')"/>
                                         </div>
 
+                                        <div class="relative">
+                                             {{slbox_caoch|safe}}
+
+                                        </div>
+                                        <div class='control-group'>
+                                            <input type="text" id="phone" name="phone" value={%if form.data.phone%} "{{form.data.phone|safe}}" {%else%} "" {%endif%} placeholder='Số điện thoại' required pattern="^[0-9]{10,12}$" oninvalid="setCustomValidity('Số điện thoại không chính xác')" oninput="setCustomValidity('')"/>
+                                        </div>
+                                        <div class='control-group'>
+                                            <input type="text" name="email" value={%if form.data.email%} "{{form.data.email|safe}}" {%else%} "" {%endif%} class='insert-attr' placeholder='Địa chỉ email' required oninvalid="setCustomValidity('Email không chính xác!')" oninput="setCustomValidity('')"/>
+                                        </div>
                                         <div class='control-group'>
                                             <input type="text" name="name" {%if form.data.name%} value="{{form.data.name|safe}}" {%endif%} placeholder='Họ và tên' required oninvalid="setCustomValidity('Tên không chính xác!')" oninput="setCustomValidity('')"/>
                                         </div>
+                                        <input type="checkbox" id="toidongy" name="toidongy" checked/>
 
-                                        <div class='control-group'>
-                                             <input type="text" id="phone" name="phone" value={%if form.data.phone%} "{{form.data.phone|safe}}" {%else%} "" {%endif%} placeholder='Số điện thoại' required pattern="^[0-9]{10,12}$" oninvalid="setCustomValidity('Số điện thoại không chính xác')" oninput="setCustomValidity('')"/>
-                                        </div>
-                                        <div class='control-group'>
-                                            {% if form.email.errors %}
-                                                <span class="field_error" id="email_error"></span>
-                                            {%endif%}
-
-                                            <input type="text" name="email" value={%if form.data.email%} "{{form.data.email|safe}}" {%else%} "" {%endif%} class='insert-attr' placeholder='Địa chỉ email' required oninvalid="setCustomValidity('Email không chính xác!')" oninput="setCustomValidity('')"/>
-                                        </div>
-
-                                        <div class="checkbox-custom checkbox-danger" style="margin-top: 10px;">
-                                            {%if form.toidongy.data%}
-                                            <input type="checkbox" id="toidongy" name="toidongy" required oninvalid="setCustomValidity('Bạn phải đồng ý với điều khoản này')" onchange="setCustomValidity('')" checked/>
-                                            {%else%}
-                                            <input type="checkbox" id="toidongy" name="toidongy" required oninvalid="setCustomValidity('Bạn phải đồng ý với điều khoản này')" onchange="setCustomValidity('')"/>
-                                            {%endif%}
-                                            <label for="toidongy" class="label-form-dk" style="color: #fff;">
-                                                Quý khách đồng ý để ngân hàng Standard Charter liên lạc với Quý khách
-                                            </label>
-                                        </div>
-
+                                        <p>Bằng cách nhấp vào "Đăng Ký Ngay" Quý khách đồng ý với điều khoản của ngân hàng Standard Chartered.</p>
                                         <button type="submit" value="Register Now" class='btn submit sub-form' name="submit">Đăng ký ngay</button>
-                                        <h2>Platinum CashBack</h2>
-                                        <h5>Hoàn tiền đến 1% cho mọi chi tiêu và không giới hạn số tiền hoàn tối đa</h5>
+                                        <div class="text-center">
+                                        <h5>Platinum CashBack</h5>
+                                        <img src="{{ url_for('static', filename='images/scb_platinum_v.png')}}" style="width:150px;">
+                                        </div>
                                     </form>
 
                                 </div>
@@ -153,7 +137,7 @@
                             <li><a href="#thongtin" class="subNavBtn">Thông tin hữu ích</a>|</li>
                             <li><a href="#dieukien" class="subNavBtn">Điều kiện phát hành</a>|</li>
                             <li><a href="#cauhoi" class="subNavBtn">Câu hỏi thường gặp</a>|</li>
-                            <li><a href="#dieukien1" class="subNavBtn">Điều khoản & điều kiện</a></li>
+                            <li><a href="#dieukien" class="subNavBtn">Điều khoản & điều kiện</a></li>
                             <div class="clr"></div>
                         </ul>
                     </div>
@@ -166,32 +150,32 @@
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="text-center">
                                 <div class="img-holder mb-25">
-                                    <img alt="" src="{{ url_for('static', filename='images/icon1.png')}}">
+                                    <img alt="" src="{{ url_for('static', filename='')}}images/icon1.png">
                                 </div>
                                 <div class="content">
-                                    <h4>Điểm thưởng du lịch</h4>
-                                    <p>Tích lũy tới 3 điểm thưởng du lịch cho mỗi 25.000 VNĐ chi tiêu</p>
+                                    <h4>Hoàn tiền 25% mọi chuyến Uber</h4>
+                                    <p>Thật tuyệt khi có thể tự do di chuyển đến bất cứ nơi đâu khi thanh toán bằng thẻ tín dụng Standard Chartered từ 01/10/2016 đến 30/09/2017.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="text-center">
                                 <div class="img-holder mb-25">
-                                    <img alt="" src="{{ url_for('static', filename='images/icon2.png')}}">
+                                    <img alt="" src="{{ url_for('static', filename='')}}images/icon2.png">
                                 </div>
                                 <div class="content">
-                                    <h4>áp dụng tại hơn 1000 địa điểm</h4>
-                                    <p>Tích lũy tới 3 điểm thưởng du lịch cho mỗi 25.000 VNĐ chi tiêu</p>
+                                    <h4>Chương trình The Good Life</h4>
+                                    <p>Quý khách sẽ được tận hưởng vô vàn ưu đãi về ẩm thực, mua sắm, du lịch, chăm sóc sức khỏe & làm đẹp tại hơn 3.500 điểm giao dịch ở Việt Nam và Châu Á.
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="text-center">
                                 <div class="img-holder mb-25">
-                                    <img alt="" src="{{ url_for('static', filename='images/icon3.png')}}">
+                                    <img alt="" src="{{ url_for('static', filename='')}}images/icon3.png">
                                 </div>
                                 <div class="content">
-                                    <h4>Dịch vụ phòng chờ cao cấp</h4>
+                                    <h4>Bảo hiểm mua sắm</h4>
                                     <p>Miễn phí sử dụng dịch vụ phòng chờ cao cấp tại hơn 800 sân bay trên toàn thế giới</p>
                                 </div>
                             </div>
@@ -199,11 +183,11 @@
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="text-center">
                                 <div class="img-holder mb-25">
-                                    <img alt="" src="{{ url_for('static', filename='images/icon4.png')}}">
+                                    <img alt="" src="{{ url_for('static', filename='')}}images/icon4.png">
                                 </div>
                                 <div class="content">
                                     <h4>Dịch vụ sân gôn</h4>
-                                    <p>Miễn phí phí ra sân tại 4 câu lạc bộ gôn:King’s Island Golf Club, Montgomerie Links Golf Club, Vietnam Golf & Country Club, Long Thanh Golf Club</p>
+                                    <p>Hoàn tiền không giới hạn cho mọi chi tiêu, mọi lúc, mọi nơi với thẻ tín dụng Platinum CashBack hoàn toàn mới</p>
                                 </div>
                             </div>
                         </div>
@@ -225,13 +209,13 @@
                                     <div class="box-holder">
                                         <a class="box" href="#" target="_blank">
                                             <img src="{{ url_for('static', filename='images/click.png')}}">
-                                            <p>Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng. Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng.</p>
+                                            <p>Từ nay đến 16/01/2017, đăng ký mở thẻ tín dụng Standard Chartered CashBack và chi tiêu tối thiểu 3 triệu đồng để nhận một xe đạp thời trang. Đồng thời, nhận thêm một bộ phụ kiện xe đạp miễn phí khi tổng chi tiêu đạt 15 triệu đồng.</p>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="t-title">
-                                <a href="#"> Thanh toán cho các chi tiêu</a>
+                                <a href="#"> Thanh toán tối thiểu 3 triệu để nhận xe đạp thời trang</a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -241,13 +225,13 @@
                                     <div class="box-holder">
                                         <a class="box" href="#" target="_blank">
                                             <img src="{{ url_for('static', filename='images/click.png')}}">
-                                            <p>Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng. Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng.</p>
+                                            <p> Thật tuyệt khi có thể tự do di chuyển đến bất cứ nơi đâu chỉ với một cú chạm và tận hưởng ưu đãi tuyệt vời này khi thanh toán bằng thẻ tín dụng Standard Chartered từ 01/10/2016 đến 30/09/2017.</p>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="t-title">
-                                <a href="#"> Danh mục điểm thưởng</a>
+                                <a href="#"> Hoàn tiền 25% mọi chuyến Uber</a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -257,13 +241,13 @@
                                     <div class="box-holder">
                                         <a class="box" href="#" target="_blank">
                                             <img src="{{ url_for('static', filename='images/click.png')}}">
-                                            <p>Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng. Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng.</p>
+                                            <p>Hoàn tiền đến 1% cho mọi chi tiêu và không giới hạn số tiền hoàn tối đa</p>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="t-title">
-                                <a href="#"> Đặc quyền sân gôn</a>
+                                <a href="#"> Hoàn tiền không giới hạn</a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -273,13 +257,13 @@
                                     <div class="box-holder">
                                         <a class="box" href="#" target="_blank">
                                             <img src="{{ url_for('static', filename='images/click.png')}}">
-                                            <p>Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng. Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng.</p>
+                                            <p>Miễn phí bảo hiểm mua sắm qua thẻ lên đến 67.500.000 VNĐ</p>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="t-title">
-                                <a href="#"> Trải nghiệm và ưu đãi đặc quyền từ MasterCard</a>
+                                <a href="#"> Bảo hiểm mua sắm</a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -289,7 +273,7 @@
                                     <div class="box-holder">
                                         <a class="box" href="#" target="_blank">
                                             <img src="{{ url_for('static', filename='images/click.png')}}">
-                                            <p>Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng. Sử dụng điểm thưởng để thanh toán cho các chi tiêu được thực hiện qua thẻ tín dụng.</p>
+                                            <p>Hãy tận hưởng cuộc sống theo cách riêng của Quý khách với vô vàn ưu đãi về ẩm thực, mua sắm, du lịch, chăm sóc sức khỏe & làm đẹp tại hơn 3.500 điểm giao dịch ở Việt Nam và Châu Á</p>
                                         </a>
                                     </div>
                                 </div>
@@ -325,104 +309,99 @@
                             <h3> Thông tin hữu ích</h3>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                            <a href="">
+                            <a href="#">
                                 <img src="{{ url_for('static', filename='images/icon5.png')}}">
                                 <div class="info2">Biểu Phí Thẻ Tín Dụng Standard Chartered</div>
-
                             </a>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                            <a href="">
-                                <img src="{{ url_for('static', filename='images/icon6.png')}}">
-                                <div class="info2">Hướng Dẫn Sử Dụng Thẻ Tín Dụng Priority WorldMiles</div>
-
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                            <a href="">
-                                <img src="{{ url_for('static', filename='images/icon6.png')}}">
-                                <div class="info2">Hướng Sẫn Sử Dụng Ứng Dụng DragonPass</div>
-
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                            <a href="">
-                                <img src="{{ url_for('static', filename='images/icon7.png')}}">
-                                <div class="info2">Danh Sách Phòng Chờ Cao Cấp Tại Các Sân Bay</div>
-
+                            <a href="#">
+                                <img src="{{ url_for('static', filename='images/icon10.png')}}">
+                                <div class="info2">Chương Trình Bảo Hiểm Bảo Đảm Mua Sắm</div>
                             </a>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <a href="">
                                 <img src="{{ url_for('static', filename='images/icon8.png')}}">
-                                <div class="info2">Hướng Dẫn Quy Đổi Điểm Thưởng</div>
+                                <div class="info2">Chương Trình Bảo Hiểm Du Lịch Toàn Diện</div>
 
                             </a>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                            <a href="">
-                                <img src="{{ url_for('static', filename='images/icon9.png')}}">
+                            <a href="#">
+                                <img src="{{ url_for('static', filename='images/icon6.png')}}">
+                                <div class="info2">Hướng Dẫn Sử Dụng Thẻ Tín Dụng Dụng Platinum CashBack</div>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <a href="#">
+                                <img src="{{ url_for('static', filename='images/icon6.png')}}">
                                 <div class="info2">Hướng Dẫn Sử Dụng Ứng Dụng The Good Life</div>
 
                             </a>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <a href="">
-                                <img src="{{ url_for('static', filename='images/icon10.png')}}">
-                                <div class="info2">Chương Trình Bảo Hiểm Du Lịch Toàn Diện</div>
-
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                            <a href="">
-                                <img src="{{ url_for('static', filename='images/icon11.png')}}">
-                                <div class="info2">Chương Trình Hỗ Trợ Y Tế và Du Lịch</div>
-
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                            <a href="">
-                                <img src="{{ url_for('static', filename='images/icon12.png')}}">
+                                <img src="{{ url_for('static', filename='images/icon6.png')}}">
                                 <div class="info2">Hướng Dẫn Cách Thức Thanh Toán Thẻ Tín Dụng</div>
 
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <a href="#">
+                                <img src="{{ url_for('static', filename='images/icon6.png')}}">
+                                <div class="info2">Hướng Dẫn Quy Đổi Tiền Hoàn Lại</div>
                             </a>
                         </div>
                     </div>
                 </div>
             </section>
-            <section style="background:#5fb84c">
+            <section style="background:#21aa47">
                 <div class="container make-row">
-                    <div id="dieukien1" class="dieukien1 s4">
+                    <div id="dieukien" class="dieukien s4">
                         <div class="row">
                             <div class="bg-tn">
 
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                     <div class="sec-title">
                                         <h3 style="color:#fff;"> Điều kiện phát hành</h3>
                                     </div>
-                                    <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="dkt">Độ tuổi</div>
                                     </div>
-                                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="nddk">
                                             Đối với khách hàng nữ: từ 22 – 55 tuổi
                                             <br> Đối với khách hàng nam: từ 22 – 60 tuổi
                                         </div>
                                     </div>
+
                                     <div class="clr"></div>
-                                    <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="dkt">Thu nhập tối thiểu</div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="dkt">Những chứng từ cần cung cấp </div>
                                     </div>
-                                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="nddk">
-                                            Chỉ áp dụng đối với khách hàng ưu tiên
+                                            Chứng từ công việc và thu nhập : Bản sao hợp đồng lao động
+                                            <br>Bản gốc sao kê hoặc phiếu chi lương thể hiện 3 tháng lương gần nhất
+                                            <br>
                                         </div>
                                     </div>
-                                    <div class="clr"></div>
-                                    <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="dkt">Chứng từ cần cung cấp</div>
+
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="sec-title">
+                                        <h3 style="color:#fff;"> &nbsp;</h3>
                                     </div>
-                                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="dkt">Mức lương chuyển khoản tối thiểu từ <span class="hl">10 Triệu VNĐ</span> </div>
+                                    </div>
+                                    <div class="clr"></div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="dkt">Chứng từ nhân thân và địa chỉ </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="nddk">
                                             <b>Đối với người Việt Nam:</b>
                                             <br> + Bản sao CMND/Hộ chiếu
@@ -430,27 +409,25 @@
                                             <br> <b>Đối với người nước ngoài:</b>
                                             <br> + Bản sao hộ chiếu
                                             <br> + Bản sao Visa/Thẻ tạm trú/Thẻ thường trú hoặc Giấy phép lao động
+
                                         </div>
                                     </div>
                                     <div class="clr"></div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="sec-title">
                                         <h3 style="color:#fff;"> Điều khoản & điều kiện</h3>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="dkt">Thẻ Tín Dụng Priority WorldMiles</div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="dkt"> Điều khoản & Điều kiện của thẻ tín dụng Standard Chartered</div>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="dkt">Điều khoản & Điều kiện để quy đổi điểm thưởng</div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="dkt">Điều khoản & Điều kiện để quy đổi tiền hoàn lại </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-                                    <p style="margin:30px 10px">1 Ngân hàng có thể yêu cầu cung cấp thêm chứng từ trong trường hợp cần thiết</p>
                                 </div>
                                 <div class="clr"></div>
                             </div>
@@ -469,24 +446,25 @@
                                 <div class="panel">
                                     <div class="panel-heading" role="tab" data-toggle="collapse" href="#Collapse1" aria-expanded="true">
                                         <a class="panel-title">
-                                           Tôi muốn vay sửa nhà nhưng không thế chấp có được không?
+                                           Thẻ tín dụng Platinum CashBack là loại thẻ thế nào và sự khác biệt với các loại thẻ tín dụng khác ?
+
                                         </a>
                                     </div>
                                     <div class="panel-collapse collapse in" id="Collapse1" role="tabpanel">
                                         <div class="panel-body">
-                                            Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                            Thẻ tín dụng Platinum CashBack là thẻ hoàn tiền, được thiết kế đặc biệt để giảm chi phí hàng tháng của Quý khách bằng cách hoàn tiền mặt trên các giao dịch chi tiêu, giúp mang đến nhiều giá trị hơn trên mỗi đồng chi tiêu của Quý khách.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="panel">
                                     <div class="panel-heading" role="tab" data-toggle="collapse" href="#Collapse2" aria-expanded="false">
                                         <a class="panel-title collapsed">
-                                          Tôi sẽ chịu lãi suất phạt trong những trường hợp nào? Mức lãi suất phạt là bao nhiêu ?
+                                          Tôi sẽ được nhận các lợi ích gì khi sử dụng thẻ tín dụng Platinum CashBack?
                                         </a>
                                     </div>
                                     <div class="panel-collapse collapse" id="Collapse2" role="tabpanel">
                                         <div class="panel-body">
-                                            Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                            NQuý khách sẽ nhận đươc 1% Tiền Hoàn đối với các giao dịch khi thanh toán bằng ngoại tệ và 0,5% Tiền Hoàn đối với các giao dịch thanh toán bằng Việt Nam Đồng.
                                         </div>
                                     </div>
                                 </div>
@@ -494,36 +472,48 @@
                                 <div class="panel">
                                     <div class="panel-heading" role="tab" data-toggle="collapse" href="#Collapse3" aria-expanded="false">
                                         <a class="panel-title collapsed">
-                                          Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                          Có giới hạnTiền Hoàn tối đa trên mỗi giao dịch hay không?
+
                                         </a>
                                     </div>
                                     <div class="panel-collapse collapse" id="Collapse3" role="tabpanel">
                                         <div class="panel-body">
-                                            Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                            Không có giới hạn về Tiền Hoàn tối đa Quý khách có thể nhận được khi chi tiêu trên thẻ.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="panel">
                                     <div class="panel-heading" role="tab">
                                         <a class="panel-title collapsed" data-toggle="collapse" href="#Collapse4" aria-expanded="false">
-                                          Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                          Chi tiêu ở danh mục nào để được hoàn tiền?
+
                                         </a>
                                     </div>
                                     <div class="panel-collapse collapse" id="Collapse4" role="tabpanel">
                                         <div class="panel-body">
-                                            Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                            Quý khách được hoàn tiền cho tất cả danh mục chi tiêu như nhà hàng, khách sạn, hàng không, dịch vụ sân gôn, các dịch vụ thanh toán và nhiều hơn thế nữa. Vui lòng tham khảo Hướng dẫn hoàn tiền để biết thêm thông tin chi tiết.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="panel">
                                     <div class="panel-heading" role="tab" data-toggle="collapse" href="#Collapse5" aria-expanded="false">
                                         <a class="panel-title collapsed">
-                                          Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                          Trong trường hợp nào tôi sẽ không được nhận Tiền Hoàn?
+
                                         </a>
                                     </div>
                                     <div class="panel-collapse collapse" id="Collapse5" role="tabpanel">
                                         <div class="panel-body">
-                                            Nếu thu nhập của bạn ổn định đủ để đảm bảo chi trả khoản vay, bạn hoàn toàn có thể vay tín chấp tai VPBank mà không cần thế chấp tài sản.
+                                            Trong trường hợp các giao dịch bị hoàn trả, tranh chấp, gian lận, hoặc không chuẩn chi, Quý khách sẽ không nhận được Tiền Hoàn. Cuối cùng, Quý khách sẽ không được hoàn tiền khi rút tiền mặt, hoặc trên các khoản phí và lãi phát sinh cũng như trên các giao dịch bị tra soát.
+                                        </div>
+
+                                    </div>
+                                    <div class="panel-collapse collapse" id="Collapse5" role="tabpanel">
+                                        <a class="panel-title collapsed">
+                                          Khi nào Tiền Hoàn sẽ hết hạn đươc quy đổi?
+                                        </a>
+                                        <div class="panel-body">
+                                            Tiền Hoàn sẽ có giá trị trong vòng 24 tháng kể từ tháng được tích lũy.
                                         </div>
                                     </div>
                                 </div>
@@ -618,5 +608,3 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
 </body>
-
-</html>

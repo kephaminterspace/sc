@@ -33,7 +33,7 @@ def select_box_by_list_disabled(list=None, selected="", name="", id="", cls="", 
     return results
 
 def select_box_by_list(list=None, selected="", name="", id="", cls="", style="", first_option_text=""):
-    results = '<select name="'+name+'" id="'+id+'" class="'+cls+'" style="'+style+'">'
+    results = '<select name="'+name+'" id="'+id+'" class="'+cls+'" style="'+style+'" required oninvalid="setCustomValidity(\'Lựa chọn laf bắt buộc\')" oninput="setCustomValidity(\'\')">'
     if first_option_text:
         results += '<option > '+first_option_text+' </option>'
     if list:
@@ -54,14 +54,7 @@ REGION=[
 ]
 
 CAOCH=[
-    (1,u'Lương bổng'),
-    (2,u'Tự làm chủ doanh nghiệp'),
-    (3,u'Tự làm việc chuyên nghiêp')
-]
-
-GENDER=[
-    (1,u"Nam"),
-    (2,u"Nữ"),
-    (3,u"Khác")
+    (1,u'Trên 10 triệu VNĐ'),
+    (2,u'Trên 30 triệu VNĐ')
 ]
 

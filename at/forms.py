@@ -19,7 +19,6 @@ class BankForm(Form):
     phone = TextField('Phone', validators = [DataRequired(message=u'Số điện thoại không chính xác'), Length(min=10, max=12), _check_phone_number])
     email = EmailField('Email', validators = [DataRequired(message=u'Email không chính xác'), Email(message=u'Email không chính xác')])
     birthday = TextField('Birthday', validators=[DataRequired(message=u'Ngày sinh không chính xác')])
-    salary = TextField('Salary', validators=[DataRequired(message=u'Tổng thu nhập hàng tháng cố định không chính xác')])
 
     region = SelectField('Region', choices=REGION, validators=[DataRequired(message=u'Xin vui lòng chọn Thành phố bạn sinh sống')], coerce=int)
     caoch = SelectField('Source Salary', choices=CAOCH, validators=[DataRequired(message=u'Xin vui lòng chọn Nguồn thu nhập')], coerce=int)
