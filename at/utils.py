@@ -5,7 +5,7 @@ import unicodedata
 def select_box_by_objects(objects=None, field_key="id", field_value="name", selected="",  name="", id="", cls="", style="", first_option_text=""):
     results = '<select name="'+name+'" id="'+id+'" class="'+cls+'" style="'+style+'">'
     if first_option_text:
-        results += '<option > -- '+first_option_text+' -- </option>'
+        results += '<option value=''> -- '+first_option_text+' -- </option>'
     if objects:
         for item in objects:
             key = str(getattr(item, field_key))
@@ -33,9 +33,9 @@ def select_box_by_list_disabled(list=None, selected="", name="", id="", cls="", 
     return results
 
 def select_box_by_list(list=None, selected="", name="", id="", cls="", style="", first_option_text=""):
-    results = '<select name="'+name+'" id="'+id+'" class="'+cls+'" style="'+style+'" required oninvalid="setCustomValidity(\'Lựa chọn laf bắt buộc\')" oninput="setCustomValidity(\'\')">'
+    results = '<select name="'+name+'" id="'+id+'" class="'+cls+'" style="'+style+'" required oninvalid="setCustomValidity(\'Lựa chọn là bắt buộc\')" oninput="setCustomValidity(\'\')">'
     if first_option_text:
-        results += '<option > '+first_option_text+' </option>'
+        results += '<option value=''> '+first_option_text+' </option>'
     if list:
         for item in list:
             key, value = item
