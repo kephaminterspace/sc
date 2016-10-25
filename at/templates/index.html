@@ -16,10 +16,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css')}}">
+
 <style>
-    .software_slider {
-        height: 850px;
-    }
+.alert {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
 </style>
 
 </head>
@@ -54,14 +58,72 @@
             </div>
         </header>
         <div class='main-wrapper '>
-            <section class="relative software_slider">
-                <div class="forma-slider section sTop">
-                    <div class="container">
-                        <div class="row">
-                            <div class="container relative fin_3" id='elem-portable'>
-                                <div class="reg-now" style="padding-top:5px;">
 
-                                      {% for field in form if field.widget.input_type != 'hidden' %}
+
+                  <section class="relative software_slider">
+                <div class="forma-slider">
+                    <div id="form_slider" data-anchor="form_slider">
+                        <ul class="form-bxslider list-unstyled">
+                            <li>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="list-forstart fin_1">
+                                            <h2 class='h-Bold'>Thẻ Platinum <br> Cash Back</h2>
+                                            <p class='desc'>Hoàn tiền đến 1% cho mọi chi tiêu và không giới hạn số tiền hoàn tối đa</p>
+                                            <ul class='ul-list-slider Open-sansR'>
+                                                <li>Hoàn tiền không giới hạn</li>
+                                                <li>Dịch vụ mua sắm</li>
+                                                <li>Bảo hiểm sân gôn</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="img-slider  slide-man1 fin_2"></div>
+                            </li>
+                            <li>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="list-forstart fin_1">
+                                            <h2 class='h-Bold'>Thẻ WorldMiles </h2>
+                                            <p class='desc'>Trải nghiệm và khám phá những ưu đãi đẳng cấp</p>
+                                            <ul class='ul-list-slider Open-sansR'>
+                                                <li>Thanh toán cho các chi tiêu</li>
+                                                <li>Quy đổi điểm thưởng để nhận quà </li>
+                                                <li>Trải nghiệm ưu đãi đặc quyền từ
+                                                    <br>MasterCash</li>
+                                                <li>Chương trình The Good Life</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="img-slider slide-man2 fin_2"></div>
+                            </li>
+                        </ul>
+
+                        <!--
+                        <div class="bx-controls bx-has-pager bx-has-controls-direction" id='dafault_pager'>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="bx-pager bx-default-pager">
+                                        <div class="bx-pager-item">
+                                            <a class="bx-pager-link " data-slide-index="0" href=""><span>Platinum</span></a>
+                                        </div>
+
+                                        <div class="bx-pager-item">
+                                            <a class="bx-pager-link active" data-slide-index="1" href=""><span>WorldMiles</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+-->
+                    </div>
+
+                    <div class="clearfix visible-xs visible-md" style="height:0px;"></div>
+                    <div class="container relative fin_3" id='elem-portable'>
+                        <div class="reg-now">
+
+                             {% for field in form if field.widget.input_type != 'hidden' %}
                                         {% if field.errors %}
                                         <div class='alert alert-danger'><a class='close' data-dismiss='alert'>×</a>
                                             {%for error in field.errors%}
@@ -112,22 +174,24 @@
                                         <div class='control-group'>
                                             <input type="text" name="name" {%if form.data.name%} value="{{form.data.name|safe}}" {%endif%} placeholder='Họ và tên' required oninvalid="setCustomValidity('Tên không chính xác!')" oninput="setCustomValidity('')"/>
                                         </div>
-                                        <input type="checkbox" id="toidongy" name="toidongy" checked/>
 
-                                        <p>Bằng cách nhấp vào "Đăng Ký Ngay" Quý khách đồng ý với điều khoản của ngân hàng Standard Chartered.</p>
+                                        <p>
+                                              {%if form.toidongy.data%}
+                                            <input type="checkbox" id="toidongy" name="toidongy" required oninvalid="setCustomValidity('Bạn phải đồng ý với điều khoản này')" onchange="setCustomValidity('')" checked/>
+                                            {%else%}
+                                            <input type="checkbox" id="toidongy" name="toidongy" required oninvalid="setCustomValidity('Bạn phải đồng ý với điều khoản này')" onchange="setCustomValidity('')"/>
+                                            {%endif%}
+                                            Bằng cách nhấp vào "Đăng Ký Ngay" Quý khách đồng ý với điều khoản của ngân hàng Standard Chartered.</p>
                                         <button type="submit" value="Register Now" class='btn submit sub-form' name="submit">Đăng ký ngay</button>
-                                        <div class="text-center">
-                                        <h5>Platinum CashBack</h5>
-                                        <img src="{{ url_for('static', filename='images/scb_platinum_v.png')}}" style="width:150px;">
-                                        </div>
                                     </form>
 
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+
+
             <div class="subMenu">
                 <div class="container make-row " style="text-align:center">
                     <div class="f-menu">
@@ -565,6 +629,9 @@
             $('.datepicker').datepicker({
                 format: 'dd-mm-yyyy'
             });
+
+             $('.datepicker').datepicker({ defaultDate: 15 });
+
         });
     </script>
 
@@ -599,6 +666,11 @@
             $("#aff_source").val(getCookie("_aff_network"));
             $("#aff_sid").val(getCookie("_aff_sid"));
 
+        $('.form-bxslider').bxSlider({
+            mode: 'fade'
+            , auto: true
+            , pause: 5000
+        });
     </script>
 <!-- Include Date Range Picker -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>

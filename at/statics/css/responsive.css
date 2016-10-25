@@ -15,10 +15,15 @@
     .reg-now {
         padding: 0px 0px;
     }
+    .bx-controls.bx-has-pager.bx-has-controls-direction {
+        display: block
+    }
 }
 
 @media (max-width: 1024px) {
-    .subMenu { display: none}
+    .subMenu {
+        display: none
+    }
 }
 
 @media (min-width: 992px) {
@@ -38,6 +43,28 @@
 }
 
 @media (max-width: 991px) {
+    .forma-slider .form-bxslider > li {
+        height: 530px;
+    }
+    .software_slider {
+        height: auto;
+    }
+    .software_slider {
+        width: 100%;
+        background: #4aa7e7;
+    }
+    .slide-man1 {
+        background: url(../images/slider_bg.jpg) no-repeat fixed left center #f4f4f4;
+        background-size: auto 100%;
+        width: 100%;
+        top: 0px;
+    }
+    .slide-man2 {
+        background: url(../images/slider_bg3.jpg) no-repeat fixed center center #f4f4f4;
+        background-size: auto 100%;
+        width: 100%;
+        top: 0px;
+    }
     #gallery > div {}
     #partners {
         text-align: center;
@@ -74,7 +101,8 @@
     }
     .reg-now,
     #elem-portable {
-        position: static;
+        position: relative;
+        left: 0;
     }
     #elem-portable {
         opacity: 1 !important;
@@ -89,7 +117,7 @@
     }
     .medium-h,
     .xsmall-h {
-        color: #2C3E50;
+        /*        color: #2C3E50;*/
     }
     .forma-slider #form_slider {
         min-height: 200px;
@@ -102,10 +130,10 @@
         margin-right: auto;
     }
     .forma-slider #form_slider {
-        width: 750px;
+        /*        width: 750px;*/
         margin-left: auto;
         margin-right: auto;
-        display: none;
+        /*        display: none;*/
     }
     .reg-now h5 {
         font-size: 15px;
@@ -118,10 +146,10 @@
         bottom: 0;
     }
     .slide-man1 {
-        left: 72%;
+        /*        left: 72%;*/
     }
     .slide-man2 {
-        left: 76%;
+        /*        left: 76%;*/
     }
     .slide-man3 {
         left: 95%;
@@ -134,15 +162,17 @@
         display: none;
     }
     .list-forstart {
-        width: 330px;
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
     }
     .h-Bold {
-        font-size: 76px;
-        line-height: 70px;
+        font-size: 50px;
+        line-height: 55px;
+        margin: 25px 0px 18px;
     }
     .forma-slider .form-bxslider > li {
         min-height: 20px;
-        padding-bottom: 120px;
         -webkit-box-sizing: content-box;
         -moz-box-sizing: content-box;
         box-sizing: content-box;
@@ -167,6 +197,9 @@
     .tab-content {
         padding: 20px 0px
     }
+    .visible-xs {
+        height: 0px;
+    }
     .copyright,
     .container.bottom nav ul {
         float: none;
@@ -184,6 +217,7 @@
     }
     .software_slider {
         background: url(../images/slider_bg.jpg) no-repeat fixed top left #f4f4f4;
+        background-size: auto 502px;
     }
     span.customSelect {
         font-size: 14px;
@@ -198,6 +232,7 @@
         margin-top: 0px;
     }
     .software_slider {
+        background: #4aa7e7;
         width: 100%;
         /*        background: url("../images/slider_bg2.jpg") no-repeat fixed top center #Fff;*/
         padding-top: 145px;
@@ -263,7 +298,7 @@
     }
     /*END*/
     .img-slider {
-        display: none;
+        /*        display: none;*/
     }
     .header-social .social-transform {
         padding-bottom: 5px;
@@ -285,17 +320,18 @@
     }
     .list-forstart {
         width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
     }
     .software_slider {
         height: auto;
     }
     #form_slider .bx-pager {
-        top: -55px;
-        left: 15px;
+        top: -90px;
+        left: 25px;
     }
     .forma-slider .form-bxslider > li {
         min-height: 20px;
-        padding-bottom: 80px;
     }
     .dark-blue {
         text-align: center;
@@ -359,6 +395,7 @@
     }
     .h-Bold {
         font: 45px/47px 'OpenSans_Bold', Arial, Helvetica, sans-serif;
+        margin: 10px 0px 18px;
     }
     .forma-slider #formIndex {
         width: 100%;
@@ -372,7 +409,6 @@
     }
     .container,
     .header-navbar,
-    .forma-slider #form_slider,
     .col-xs-1,
     .col-sm-1,
     .col-md-1,
@@ -461,6 +497,16 @@
     #thongtin .info2 {
         margin-top: 10px;
     }
+    .forma-slider .form-bxslider > li {
+        height: 490px;
+    }
+}
+
+@media (max-width: 684px) {
+    .software_slider {}
+    .forma-slider .form-bxslider > li {
+        height: 530px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -478,9 +524,16 @@
     .img2 {
         width: 49%
     }
+    .forma-slider .form-bxslider > li {
+        height: 530px;
+    }
 }
 
 @media (max-width: 400px) {
+    .forma-slider .form-bxslider > li {
+        height: 645px;
+    }
+    .software_slider {}
     .toggle-slide-left {
         margin-left: 10px;
     }
