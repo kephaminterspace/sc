@@ -88,8 +88,8 @@ a:focus {
 
 .h-Bold {
     color: #fff;
-    font: 55px 'OpenSans_Bold', Arial, Helvetica, sans-serif;
-    margin: 50px 0px 18px;
+    font: 90px/76px 'OpenSans_Bold', Arial, Helvetica, sans-serif;
+    margin: 0 0 18px;
 }
 
 .xh-Bold {
@@ -133,8 +133,6 @@ a:focus {
     color: #fff;
     font: 14px/32px Arial, Helvetica, sans-serif;
     margin: 0;
-    line-height: 18px;
-    margin-top: 10px;
 }
 
 .xxsmall-h {
@@ -546,9 +544,9 @@ img {
 
 .software_slider {
     width: 100%;
-    /*    background: url(../images/slider_bg.jpg) no-repeat fixed top center #f4f4f4;*/
-    /*    padding-top: 85px;*/
-        height: 680px;
+    background: url(../images/slider3_bg.jpg) no-repeat fixed top center #f4f4f4;
+    padding-top: 85px;
+    height: 800px;
 }
 
 .forma-slider .bx-wrapper .bx-controls-direction a {
@@ -562,7 +560,8 @@ img {
 
 .forma-slider .form-bxslider > li {
     width: 100% !important;
-    min-height: 680px;
+    max-height: 540px;
+    min-height: 540px;
 }
 
 #form_slider .app-bx > li {
@@ -584,8 +583,8 @@ img {
 
 #form_slider .bx-pager .bx-pager-item {
     color: #fff;
-    height: 30px;
-    width: 30px;
+    height: 44px;
+    width: 44px;
 }
 
 #form_slider .bx-pager .bx-pager-item.lastItem {
@@ -757,9 +756,6 @@ img {
 
 .ul-list-slider li {
     position: relative;
-    font-family: "Open sans";
-    line-height: 24px;
-    margin-bottom: 17px;
 }
 
 .ul-list-slider li:before {
@@ -784,7 +780,6 @@ img {
     position: relative;
     width: 40%;
     z-index: 1;
-    padding-top: 85px;
 }
 
 .list-forstart .desc {
@@ -793,29 +788,35 @@ img {
 }
 
 .img-slider {
+    bottom: 0px;
+    left: 50%;
+    margin-left: -225px;
     position: absolute;
+    width: 475px;
 }
 
 .slide-man1 {
-    background: url("../images/slider_bg.jpg") no-repeat fixed top center #f4f4f4;
-    height: 100%;
-    width: 100%;
-    top: 0px;
+    background: url("../images/slider_man1.png") no-repeat;
+    height: 568px;
+    width: 420px;
+    left: 50%;
+    margin-left: -210px;
 }
 
 .slide-man2 {
-    background: url("../images/slider_bg3.jpg") no-repeat fixed top center #f4f4f4;
-    height: 100%;
-    width: 100%;
-    top: 0px;
+    background: url("../images/slider_man2.png") no-repeat;
+    height: 596px;
+    width: 356px;
+    left: 54%;
+    margin-left: -178px;
 }
 
 .slide-man3 {
     background: url("../images/slider_man3.png") no-repeat;
-    height: 150px;
-    width: 230px;
-    left: 50%;
-    margin-left: -255px;
+    height: 396px;
+    width: 514px;
+    left: 48%;
+    margin-left: -320px;
 }
 
 
@@ -831,11 +832,11 @@ img {
     border: 1px solid;
     border-radius: 50px;
     display: block;
-    height:30px;
+    height: 40px;
     margin-bottom: 9px;
     padding: 0;
     position: relative;
-    width: 30px;
+    width: 40px;
 }
 
 #form_slider .bx-default-pager a:focus {
@@ -848,18 +849,16 @@ img {
     margin-left: -17px;
     position: absolute;
     text-align: center;
-    /*    text-transform: uppercase;*/
+    text-transform: uppercase;
     width: 75px;
 }
 
 #form_slider .bx-default-pager a:hover,
 #form_slider .bx-default-pager .active {
     background: #fff !important;
-    color: #fff !important;
+    color: #fff;
 }
 
-
-/*
 #form_slider .pager-Ico1:before {
     background: url("../images/beans.svg") no-repeat scroll -37px -203px rgba(0, 0, 0, 0);
     content: "";
@@ -910,24 +909,21 @@ img {
 #form_slider .pager-Ico3.active:before {
     background: url("../images/beans_red.svg") no-repeat scroll -36px -237px rgba(0, 0, 0, 0) !important;
 }
-*/
-.bx-controls.bx-has-pager.bx-has-controls-direction {
-        display: none;
-    }
+
 #form_slider .bx-pager {
     left: 15px;
     position: relative;
-    top: -100px;
+    top: -72px;
     z-index: 55;
 }
 
 #form_slider .bx-pager a {
-    color: #fff !important;
+    color: #fff;
 }
 
 #form_slider .bx-has-controls-direction .bx-pager-item {
     float: left;
-    margin-right: 25px;
+    margin-right: 45px;
 }
 
 #back-top-wrapper {
@@ -1130,7 +1126,7 @@ img {
 }
 
 .reg-now-visible {
-    margin-top: 10px;
+/*    margin-top: 10px;*/
     position: relative;
     z-index: 100;
 }
@@ -3713,11 +3709,10 @@ ul.u2 li.li6 {
     }
     #elem-portable {
         padding-top: 0px !important;
-        padding-bottom: 25px !important;
-        background: rgba(0, 0, 0, 0.5);
+        padding-bottom: 0px !important;
     }
     .software_slider {
-        padding-top: 0px !important;
+        padding-top: 90px !important;
     }
     .text-1 {
         font-size: 32px;
@@ -4005,7 +4000,7 @@ ul.u2 li.li6 {
 }
 
 .tinhnang h4 {
-    text-transform: uppercase;
+    /*    text-transform: uppercase;*/
     color: #2aac48;
     font-size: 16px;
     font-weight: 600;
@@ -4143,7 +4138,7 @@ ul.u2 li.li6 {
 }
 
 .tienich .t-title {
-    text-transform: uppercase;
+    /*    text-transform: uppercase;*/
     margin: 10px 0px;
     /*    text-align: center;*/
 }
@@ -4153,9 +4148,11 @@ ul.u2 li.li6 {
 }
 
 .reg-now p {
-    color: #fff;
+       color: #fff;
     padding: 10px 0px;
     margin-bottom: 0px;
+    font-size: 16px;
+    line-height: 23px;
 }
 
 .reg-now h2 {
@@ -4168,24 +4165,26 @@ ul.u2 li.li6 {
 }
 
 .reg-now h5 {
-    color: #fff;
-    font-size: 19px;
-    font-weight: 300;
+        color: #fff;
+    font-size: 23px;
+    font-weight: 500;
     font-family: "Open Sans";
-    margin-top: 10px;
+    margin-top: 30px;
     line-height: 25px;
+    text-transform: uppercase;
+/*    text-align: center;*/
 }
 
 .dkt {
-    font-size: 13px;
+    font-size: 14px;
     background: url(../images/icon-check.png) no-repeat;
     padding-left: 40px;
     min-height: 30px;
     line-height: 23px;
     background-size: 25px;
     font-weight: 500;
-    margin-top: 15px;
-    text-transform: uppercase;
+    margin-top: 10px;
+/*    text-transform: uppercase;*/
 }
 
 .nddk {
@@ -4210,7 +4209,7 @@ ul.u2 li.li6 {
 }
 
 .bg-tn {
-    background: #5fb84c;
+    /*    background: #5fb84c;*/
     padding: 5px 0px;
     margin: 15px 0px;
     color: #fff;
@@ -4293,6 +4292,7 @@ ul.u2 li.li6 {
     display: inline-block;
 }
 
-.bx-controls.bx-has-pager.bx-has-controls-direction {
-    height: 0px;
+.hl {
+    font-weight: 600;
+    color: yellow
 }
