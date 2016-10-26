@@ -16,16 +16,19 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/font-awesome.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/responsive.css')}}">
-    <style>
+
+   <style>
         .alert {
             padding: 10px;
             margin-bottom: 10px;
         }
         .software_slider {
-            height: 850px;
+            height: 810px;
+        }
+        .forma-slider .form-bxslider > li {
+            min-height: 810px;
         }
     </style>
-
 </head>
 
 <body>
@@ -45,7 +48,7 @@
                     <nav class="navbar header-navbar" role="navigation">
                         <div class="navbar-header">
                             <div class="logo navbar-brand">
-                                <a href="#" title="Standard Chartered"></a>
+                                <a href="javascript:void(0);" title="Standard Chartered"></a>
                             </div>
                         </div>
 
@@ -59,13 +62,24 @@
         </header>
         <div class='main-wrapper '>
             <section class="relative software_slider">
-                <div class="forma-slider section sTop">
-                    <div class="container">
-                        <div class="row">
-                            <div class="container relative fin_3" id='elem-portable'>
-                                <div class="reg-now">
+                <div class="forma-slider">
+                    <div id="form_slider" data-anchor="form_slider">
+                        <ul class="form-bxslider list-unstyled">
+                            <li>
+                                <div class="img-slider  slide-man1 fin_2"></div>
+                            </li>
+                            <li>
+                                <div class="img-slider slide-man2 fin_2"></div>
+                            </li>
+                        </ul>
 
-                                     {% for field in form if field.widget.input_type != 'hidden' %}
+                    </div>
+
+                    <div class="clearfix visible-xs visible-md" style="height:0px;"></div>
+                    <div class="container relative fin_3" id='elem-portable'>
+                        <div class="reg-now">
+
+                                    {% for field in form if field.widget.input_type != 'hidden' %}
                                         {% if field.errors %}
                                         <div class='alert alert-danger'><a class='close' data-dismiss='alert'>×</a>
                                             {%for error in field.errors%}
@@ -128,9 +142,6 @@
                                         <h5>Platinum CashBack</h5>
                                         <img src="{{url_for('static', filename='images/scb_platinum_v.png')}}" style="width:150px;">
                                     </form>
-
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -152,7 +163,7 @@
             </div>
 
             <section class="container make-row ">
-                <div id="tinhnang" class="tinhnang">
+                <div class="tinhnang">
                     <div class="row">
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="text-center">
@@ -204,7 +215,7 @@
                 </div>
             </section>
             <section class="container make-row">
-                <div id="tienich" class="tienich">
+                <div class="tienich">
                     <div class="row">
                         <div class="sec-title has-bg">
                             <h3> Tiện ích</h3>
@@ -310,7 +321,7 @@
                 </div>
             </section>
             <section class="container make-row">
-                <div id="thongtin" class="thongtin s3">
+                <div class="thongtin s3">
                     <div class="row">
                         <div class="sec-title has-bg">
                             <h3> Thông tin hữu ích</h3>
@@ -366,7 +377,7 @@
             </section>
             <section style="background:#21aa47">
                 <div class="container make-row">
-                    <div id="dieukien" class="dieukien s4">
+                    <div class="dieukien s4">
                         <div class="row">
                             <div class="bg-tn">
 
@@ -426,13 +437,13 @@
                                         <h3 style="color:#fff;"> Điều khoản & điều kiện</h3>
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="dkt"> Điều khoản & Điều kiện của thẻ tín dụng Standard Chartered</div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="dkt"> Điều khoản & Điều kiện của thẻ tín dụng Standard Chartered</div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="dkt">Điều khoản & Điều kiện để quy đổi tiền hoàn lại </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="dkt">Điều khoản & Điều kiện để quy đổi tiền hoàn lại </div>
                                         </div>
                                     </div>
                                 </div>
@@ -443,7 +454,7 @@
                 </div>
             </section>
             <section class="container make-row">
-                <div id="cauhoi" class="cauhoi s5">
+                <div class="cauhoi s5">
                     <div class="row">
                         <div class="sec-title">
                             <h3> Câu hỏi thường gặp</h3>
@@ -451,13 +462,13 @@
                         <div class="col-lg-12">
                             <div class="panel-group" aria-multiselectable="true" role="tablist">
                                 <div class="panel">
-                                    <div class="panel-heading" role="tab" data-toggle="collapse" href="#Collapse1" aria-expanded="true">
+                                    <div class="panel-heading" role="tab" data-toggle="collapse" href="#Collapse1" aria-expanded="false">
                                         <a class="panel-title">
                                            Thẻ tín dụng Platinum CashBack là loại thẻ thế nào và sự khác biệt với các loại thẻ tín dụng khác ?
 
                                         </a>
                                     </div>
-                                    <div class="panel-collapse collapse in" id="Collapse1" role="tabpanel">
+                                    <div class="panel-collapse collapse" id="Collapse1" role="tabpanel">
                                         <div class="panel-body">
                                             Thẻ tín dụng Platinum CashBack là thẻ hoàn tiền, được thiết kế đặc biệt để giảm chi phí hàng tháng của Quý khách bằng cách hoàn tiền mặt trên các giao dịch chi tiêu, giúp mang đến nhiều giá trị hơn trên mỗi đồng chi tiêu của Quý khách.
                                         </div>
@@ -568,6 +579,20 @@
     <script src="{{url_for('static', filename='js/jquery.colorbox-min.js')}}"></script>
     <script src="{{url_for('static', filename='js/custom.js')}}"></script>
     <script src="{{url_for('static', filename='js/loader.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.subMenu').smint({
+                'scrollSpeed': 1000
+            });
+        });
+        $('.form-bxslider').bxSlider({
+            mode: 'fade'
+            , auto: true
+            , pause: 3000
+        });
+    </script>
+
+
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -622,10 +647,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
 </body>
-
 </html>
-
-
 
 
 
