@@ -4301,3 +4301,8 @@ ul.u2 li.li6 {
     font-weight: 600;
     color: yellow;
 }
+
+.subMenu ul li a{
+    font-weight: 500;
+    font-size: 16px;
+}
