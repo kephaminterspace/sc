@@ -113,7 +113,7 @@
                                             {{slbox_region|safe}}
                                         </div>
                                         <div class='control-group'>
-                                            <input type="text" class="datepicker" name="birthday" {%if form.data.birthday%} value="{{form.data.birthday|safe}}" {%endif%} placeholder='Ngày sinh'/>
+                                            <input type="text" class="datepicker" value="" placeholder='Ngày sinh' required readonly/>
                                         </div>
 
                                         <div class="relative">
@@ -596,12 +596,21 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            var today = new Date();
             $('.datepicker').datepicker({
-                format: 'dd-mm-yyyy'
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                endDate : new Date(today.getFullYear()-18, today.getMonth(), today.getDate())
             });
 
-             $('.datepicker').datepicker({ defaultDate: 15 });
 
+
+            {%if form.data.birthday%}
+                var from = "{{form.data.birthday|safe}}".split("-");
+                $('.datepicker').datepicker('setDate', new Date(from[2], from[1] - 1, from[0]) );
+            {%else%}
+                $('.datepicker').datepicker('setDate', new Date(today.getFullYear()-18, today.getMonth(), today.getDate()));
+            {%endif%}
         });
     </script>
 
