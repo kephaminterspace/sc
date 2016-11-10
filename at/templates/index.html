@@ -113,7 +113,7 @@
                                             {{slbox_region|safe}}
                                         </div>
                                         <div class='control-group'>
-                                            <input type="text" class="datepicker" value="" placeholder='Ngày sinh' required readonly/>
+                                            <input type="text" name="birthday" class="datepicker" value="" placeholder='Ngày sinh' required readonly/>
                                         </div>
 
                                         <div class="relative">
@@ -602,8 +602,6 @@
                 autoclose: true,
                 endDate : new Date(today.getFullYear()-18, today.getMonth(), today.getDate())
             });
-
-
 
             {%if form.data.birthday%}
                 var from = "{{form.data.birthday|safe}}".split("-");
