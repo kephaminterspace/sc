@@ -2,7 +2,7 @@
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
-from flask import Flask, Blueprint, request, render_template, url_for, send_from_directory
+from flask import Flask, Blueprint, request, render_template, url_for, send_from_directory, redirect
 import logging
 import datetime
 import requests
@@ -71,7 +71,7 @@ def index():
 
                     return render_template('index.html', form=form, slbox_region=slbox_region, slbox_caoch=slbox_caoch)
                 else:
-                    return render_template('thankyou.html')
+                    return redirect(url_for('thank_you'))
 
             form.email.errors.append("Invalid data!")
             return render_template('index.html', form=form, slbox_region=slbox_region, slbox_caoch=slbox_caoch)
@@ -82,3 +82,6 @@ def index():
     return render_template('index.html', form=form, slbox_region=slbox_region, slbox_caoch=slbox_caoch)
 
 
+@app.route("/thank_you", methods=['GET'])
+def thank_you():
+    return render_template('thankyou.html')

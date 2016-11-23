@@ -17,6 +17,17 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/responsive.css')}}">
 
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-87918013-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
    <style>
         .alert {
             padding: 10px;
@@ -113,7 +124,7 @@
                                             {{slbox_region|safe}}
                                         </div>
                                         <div class='control-group'>
-                                            <input type="text" name="birthday" class="datepicker" value="" placeholder='Ngày sinh' required readonly/>
+                                            <input type="text" name="birthday" class="datepicker" value="" placeholder='Ngày sinh'/>
                                         </div>
 
                                         <div class="relative">
@@ -136,7 +147,7 @@
                                             {%else%}
                                             <input type="checkbox" id="toidongy1" name="toidongy" required oninvalid="setCustomValidity('Bạn phải đồng ý với điều khoản này')" onchange="setCustomValidity('')"/>
                                             {%endif%}
-                                            Bằng cách nhấp vào "Đăng Ký Ngay" Quý khách đồng ý với điều khoản của ngân hàng Standard Chartered.</p>
+                                            Đồng ý nhận tư vấn về thẻ tín dụng từ ngân hàng Standard Chartered.</p>
                                         <button type="submit" value="Register Now" class='btn submit sub-form' name="submit">Đăng ký ngay</button>
                                          <div class="text-center">
                                         <h5>Platinum CashBack</h5>
@@ -526,7 +537,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="panel-collapse collapse" id="Collapse5" role="tabpanel">
+                                    <div class="panel-collapse collapse" id="Collapse6" role="tabpanel">
                                         <a class="panel-title collapsed">
                                           Khi nào Tiền Hoàn sẽ hết hạn đươc quy đổi?
 
@@ -606,8 +617,6 @@
             {%if form.data.birthday%}
                 var from = "{{form.data.birthday|safe}}".split("-");
                 $('.datepicker').datepicker('setDate', new Date(from[2], from[1] - 1, from[0]) );
-            {%else%}
-                $('.datepicker').datepicker('setDate', new Date(today.getFullYear()-18, today.getMonth(), today.getDate()));
             {%endif%}
         });
     </script>
