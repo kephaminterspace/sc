@@ -49,8 +49,7 @@ def select_box_by_list(list=None, selected="", name="", id="", cls="", style="",
 # Constant
 REGION=[
     (1,u"Hà Nội"),
-    (2,u"Thành phố Hồ Chí Minh"),
-    (3,u"Bình Dương")
+    (2,u"Thành phố Hồ Chí Minh")
 ]
 
 CAOCH=[
